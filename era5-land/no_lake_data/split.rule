@@ -1,0 +1,1 @@
+write "[centre]_[dataDate]_[dataType]_[levelType].grib[edition]";
