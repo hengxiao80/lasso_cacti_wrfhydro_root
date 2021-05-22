@@ -33,7 +33,7 @@ def td_to_sh_mfe(p, td):
     return sh
 
 
-start_time = datetime.strptime("201809010000", "%Y%m%d%H%M")
+start_time = datetime.strptime("201808010000", "%Y%m%d%H%M")
 end_time = datetime.strptime("201809010000", "%Y%m%d%H%M")
 interval = timedelta(seconds=3600)
 
@@ -51,7 +51,7 @@ also a mean value. But we will have to live with that.
 """
 # input acc: "point", "point", "point", "point", "point", "acc", "acc", "acc"
 in_names = ["t2m", "d2m", "u10", "v10", "sp", "tp", "ssrd", "strd"]
-conversion = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0e3, 1.0, 1.0, 1.0]
+conversion = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0e3, 1.0, 1.0]
 # averaging method choices
 # output acc  "point", "point", "point", "point", "point", "mean", "point", "point"
 out_names = ["T2D", "Q2D", "U10", "V10", "PRES", "RAINRATE", "DSWRF", "DLWRF"]
@@ -134,12 +134,7 @@ while out_time <= end_time:
         out_data[out_name].setncatts(in_data[in_name].__dict__)
         out_data[out_name].units = out_units[i]
         out_data[out_name].long_name = out_longnames[i]
-        if (
-            out_name == "T2D"
-            or out_name == "U10"
-            or out_name == "V10"
-            or out_name == "PRES"
-        ):
+        if out_name in ["T2D", "U10", "V10", "PRES"]:
             out_data[out_name][:] = in_data[in_name][out_ind, ::-1, :] * conversion[i]
         elif out_name == "Q2D":
             out_data[out_name][:] = (
@@ -148,7 +143,7 @@ while out_time <= end_time:
                 )
                 * conversion[i]
             )
-        elif out_name == "DSWRF" or out_name == "DLWRF" or out_name == "RAINRATE":
+        elif out_name in ["DSWRF", "DLWRF", "RAINRATE"]:
             if out_avg[i] == prev_hour_avg:
                 if out_time.hour == 1:
                     out_data[out_name][:] = (
@@ -194,6 +189,9 @@ while out_time <= end_time:
                         / float(interval.seconds)
                         / 2.0
                     )
+        # zero out negative downward shortwave fluxes and rain rates 
+        if out_name in ["DSWRF", "RAINRATE"]:
+            out_data[out_name][:] = np.where(out_data[out_name][:] > 0.0, out_data[out_name][:], 0.0)
     # close the files
     in_data.close()
     if in_data_2 != None:

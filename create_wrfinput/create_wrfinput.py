@@ -3,7 +3,7 @@ This script uses a `wrfinput_d*` file from either `create_wrfinput.R` or
 `real.exe` as a template and fills in variables from the output of metgrid.exe
 to create a new `wrfinput_d*` file for WRF-Hydro run initial conditions.
 
-As I have not run WRF-Hydro yet, I don't know all the details yet. But I want
+As I have not run WRF-Hydro, I don't know all the details yet. But I want
 to set up a framework for ingesting and manipulating the netcdf files
 (either `wrfinput_d*` or `met_em*`).
 """
@@ -12,7 +12,7 @@ from netCDF4 import Dataset
 import numpy as np
 from scipy.interpolate import interp1d
 
-template = Dataset('../create_wrfinput_r/wrfinput_d01_new.nc', 'r+')
+template = Dataset('wrfinput_d01.nc', 'r+')
 met_data = Dataset('../metgrid4wrfinput/met_em.d01.2018-08-01_00:00:00.nc', 'r')
 
 tslb = template.variables['TSLB']
