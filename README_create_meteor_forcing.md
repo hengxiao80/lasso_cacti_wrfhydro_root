@@ -55,4 +55,77 @@ ERA5-land documentation claims that some bias correction to the forcing data dri
 
 ### Downscaling
 
-"Downscaling" seems to be doing similar things as "Bias-correction" but from the forcing data grid/elevation to the WRF-Hydro grid/elevation (from `geo_em_d*.nc`). I added code to read in the surface height from ERA5-land to MFE in case we need to use it for downscaling.
+"Downscaling" seems to be doing similar things as "Bias-correction" but from the forcing data grid/elevation to the WRF-Hydro grid/elevation (from `geo_em_d*.nc`). I added code to read in the surface height from ERA5-land to MFE.
+
+### `test.config`
+
+This is the configuration file for MFE run. The version I am currently using is [here](https://github.com/hengxiao80/WrfHydroForcing/blob/era5land/test.config). I don't quite understand the differences among `retrospective`, `forecast`, `reforecast` modes. I also don't think the code is actually fully setup to support all these modes. Currently, I just do the following:
+
+```[Retrospective]
+# Specify to process forcings in retrospective mode
+# 0 - No
+# 1 - Yes
+RetroFlag = 0
+
+# Choose the beginning date of processing forcing files.
+# NOTE - Dates are given in YYYYMMDDHHMM format
+# If in real-time forecasting mode, leave as -9999.
+# These dates get over-ridden in lookBackHours.
+BDateProc = 201808010000
+EDateProc = 201809010000
+
+[Forecast]
+# Specify if this is an Analysis and Assimilation run (AnA).
+# If this is AnA run, set AnAFlag = 1, otherwise 0.
+# Setting this flag will change the behavior of some Bias Correction routines as well
+# as the ForecastInputOffsets options (see below for more information)
+AnAFlag = 0
+
+# ONLY for realtime forecasting.
+# - Specify a lookback period in minutes to process data.
+#   This overrides any BDateProc/EDateProc options passed above.
+#   If no LookBack specified, please specify -9999.
+#LookBack = 4320
+LookBack = -9999
+
+# If running reforecasts, specify a window below. This will override 
+# using the LookBack value to calculate a processing window.
+# Specify -9999 if this is a real-time forecastinng instance
+RefcstBDateProc = 201808010000
+RefcstEDateProc = 201808010100
+
+# Specify a forecast frequency in minutes. This value specifies how often
+# to generate a set of forecast forcings. If generating hourly retrospective
+# forcings, specify this value to be 60. 
+ForecastFrequency = 60
+
+# Forecast cycles are determined by splitting up a day by equal 
+# ForecastFrequency interval. If there is a desire to shift the
+# cycles to a different time step, ForecastShift will shift forecast
+# cycles ahead by a determined set of minutes. For example, ForecastFrequency
+# of 6 hours will produce forecasts cycles at 00, 06, 12, and 18 UTC. However,
+# a ForecastShift of 1 hour will produce forecast cycles at 01, 07,
+# 13, and 18 UTC. NOTE - This is only used by the realtime instance 
+# to calculate forecast cycles accordingly. Re-forecasts will use the beginning
+# and ending dates specified in conjunction with the forecast frequency
+# to determine forecast cycle dates.  
+ForecastShift = 0
+
+# Specify how much (in minutes) of each input forcing is desires for each 
+# forecast cycle. See documentation for examples. The length of
+# this array must match the input forcing choices.
+ForecastInputHorizons = [44640]
+
+# This option is for applying an offset to input forcings to use a different
+# forecasted interval. For example, a user may wish to use 4-5 hour forecasted
+# fields from an NWP grid from one of their input forcings. In that instance
+# the offset would be 4 hours, but 0 for other remaining forcings.
+#
+# In AnA runs, this value is the offset from the available forecast and 00z
+# For example, if forecast are available at 06z and 18z, set this value to 6
+ForecastInputOffsets = [0]
+```
+
+Both `RetroFlag` and `AnAFlag` are set to zero. `RefcstBDateProc`, `RefcstEDateProc` and `ForecastFrequency` are set so that we are just running one forecast cycle starting from `RefcstEDateProc`. `ForecastInputHorizons` actually controls the time period for which we are generating forcing. `OutputFrequency` seems to control the frequency of output. 
+
+Probably should change this part of the original code to make it easier to understand and configure.

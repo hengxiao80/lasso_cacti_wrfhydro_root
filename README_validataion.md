@@ -1,6 +1,6 @@
 # README
 
-## Data for validation of WRF-Hydro output again ERA5-land
+## Data for validation of WRF-Hydro output against ERA5-land
 
 - ERA5-land original data
     - `/ccs/home/h1x/scratchp/wrfhydro_cacti/era5-land/no_lake_data/`
@@ -16,7 +16,6 @@
         - e.g., `201808240100.LDASOUT_DOMAIN1`
 
 ## Forcing data used by WRF-Hydro
-
 
 - Input to MFE (created from ERA5-land data by `preprocess_era5_land.py`)
     - `/ccs/home/h1x/scratchp/wrfhydro_cacti/era5-land/mfe_input`

@@ -1,12 +1,12 @@
 # README
 
-This `README.md` documents the steps I take to generate the `wrfinput` file for an uncoupled/standalone WRF-Hydro run for CACTI.
+This file documents the steps I take to generate the `wrfinput` file for an uncoupled/standalone WRF-Hydro run for CACTI.
 
 ## ERA5-land data
 
 - Download hourly ERA5-land data from CDS using `get_era5_land.py`;
 
-- Run `grib_filter` to generate the GRIB1 files for the analysis data, which include variables like soil temperature and moisture (see also [the note in the `era5-land` subdirectory](../era5-land/README.md));
+- Run `grib_filter` to generate the GRIB1 files for the analysis data, which include variables like soil temperature and moisture (see also [README_create_meteor_forcing.md](README_create_meteor_forcing.md).
 
 - Here is a list of all the variables in the analysis part of the ERA5-land data:
 
