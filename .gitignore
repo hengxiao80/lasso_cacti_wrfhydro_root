@@ -17,6 +17,7 @@ metgrid4wrfinput/ERA5land:*
 ungrib4wrfinput/
 !ungrib4wrfinput/namelist.wps
 !ungrib4wrfinput/Vtable
+era5-land/regridded/
 wrfhydro_run/
 !wrfhydro_run/*.TBL
 !wrfhydro_run/hydro.namelist
