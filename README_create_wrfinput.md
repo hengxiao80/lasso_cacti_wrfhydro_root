@@ -1,8 +1,8 @@
-# Making The Stew
+# README
 
-This `README.md` documents the steps I am taking to generate the `wrfinput` file for an uncoupled/standalone WRF-Hydro run for CACTI.
+This `README.md` documents the steps I take to generate the `wrfinput` file for an uncoupled/standalone WRF-Hydro run for CACTI.
 
-## Analysis data from ERA5-Land
+## ERA5-land data
 
 - Download hourly ERA5-land data from CDS using `get_era5_land.py`;
 
