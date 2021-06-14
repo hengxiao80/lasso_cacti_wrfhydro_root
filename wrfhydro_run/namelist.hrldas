@@ -14,7 +14,7 @@ START_MIN   = 00
 ! RESTART_FILENAME_REQUESTED = "RESTART.2013091204_DOMAIN1"
 
 ! Specification of simulation length in days OR hours
-KDAY = 31
+KDAY = 333 
 ! KHOUR = 8
 
 ! Physics options (see the documentation for details)
