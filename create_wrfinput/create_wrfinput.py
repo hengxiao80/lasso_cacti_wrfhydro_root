@@ -66,10 +66,10 @@ sm_met_expanded[0,1:-1,:,:] = sm_met[0,::-1,:,:]
 
 # linear interpolations
 f = interp1d(z_met_expanded, st_met_expanded, kind='linear', axis=1)
-tslb = f(zs)
+tslb[:] = f(zs)
 del f
 f = interp1d(z_met_expanded, sm_met_expanded, kind='linear', axis=1)
-smois = f(zs)
+smois[:] = f(zs)
 del f
 
 template.close()
