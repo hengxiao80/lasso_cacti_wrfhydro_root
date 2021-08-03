@@ -3,6 +3,7 @@ WPS_GEOG_old/
 mfe_input
 mfe_scratch/
 wrfhydro_forcing/
+*.tar
 *.gz
 *.zip
 *.nc
@@ -25,4 +26,5 @@ wrfhydro_run/run*/test.out
 wrfhydro_run/run*/test.err
 wrfhydro_run/run*/wrf_run
 wrfhydro_run/run*/*.exe
-
+wrfhydro2wrfinput/modified
+wrfhydro2wrfinput/original

@@ -12,8 +12,10 @@ from netCDF4 import Dataset
 import numpy as np
 from scipy.interpolate import interp1d
 
-template = Dataset('wrfinput_d01.nc', 'r+')
-met_data = Dataset('../metgrid4wrfinput/met_em.d01.2018-08-01_00:00:00.nc', 'r')
+# template = Dataset('wrfinput_d01.nc', 'r+')
+# met_data = Dataset('../metgrid4wrfinput/met_em.d01.2018-08-01_00:00:00.nc', 'r')
+template = Dataset('wrfinput_d02.nc', 'r+')
+met_data = Dataset('../metgrid4wrfinput/met_em.d02.2018-08-01_00:00:00.nc', 'r')
 
 tslb = template.variables['TSLB']
 smois = template.variables['SMOIS']
