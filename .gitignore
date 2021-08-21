@@ -11,6 +11,8 @@ wrfhydro_forcing/
 *.header
 *.exe
 *.log
+*.png
+*.pkl
 __pycache__/
 \.vscode/
 metgrid4wrfinput/metgrid/
