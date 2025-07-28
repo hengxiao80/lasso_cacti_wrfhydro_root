@@ -24,9 +24,10 @@ ungrib4wrfinput/
 era5-land/regridded/
 wrfhydro_run/run*/out/
 wrfhydro_run/run*/diag_hydro.*
-wrfhydro_run/run*/test.out
-wrfhydro_run/run*/test.err
+wrfhydro_run/run*/*.out
+wrfhydro_run/run*/*.err
 wrfhydro_run/run*/wrf_run
 wrfhydro_run/run*/*.exe
 wrfhydro2wrfinput/modified
 wrfhydro2wrfinput/original
+core
