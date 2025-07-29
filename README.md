@@ -2,11 +2,11 @@
 
 ## Create `wrfinput` for WRF-Hydro
 
-See [README_create_wrfinput4wrf.md](README_create_wrfinput4wrf.md) for the steps to create `wrfinput` files for WRF-Hydro.
+See [README_create_wrfinput_for_wrfhydro.md](README_create_wrfinput_for_wrfhydro.md) for the steps to create `wrfinput` files for WRF-Hydro.
 
 ## Create meteorological forcing for WRF-Hydro
 
-See [README_create_meteor_forcing_4_wrfhydro.md](README_create_meteor_forcing_4_wrfhydro.md) for the steps to create meteorological forcing files for WRF-Hydro.
+See [README_create_meteor_forcing_for_wrfhydro.md](README_create_meteor_forcing_for_wrfhydro.md) for the steps to create meteorological forcing files for WRF-Hydro.
 
 ## Running WRF-Hydro
 

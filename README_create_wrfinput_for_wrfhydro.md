@@ -101,7 +101,7 @@ These are all accumulated quantities from the start of the daily forecast cycle 
 
 (in `ungrib4wrfinput`)
 
-NOTE: You only need the first two hours for wrfinput_d* generation.
+NOTE: You only need the first two hours (only the first hour is used actually) of ERA5-land data for wrfinput_d* generation (see `namelist.wps`).
 
 - Run `link_grib.sh` on ERA5-land data;
 
@@ -128,3 +128,5 @@ NOTE: You only need the first two hours for wrfinput_d* generation.
 (in `create_wrfinput`)
 
 - Run `create_wrfinput.py`
+
+- The `wrfinput_d*` files containing ERA5-land input are used for the WRF-Hydro runs (labelled `run01_*` internally).
