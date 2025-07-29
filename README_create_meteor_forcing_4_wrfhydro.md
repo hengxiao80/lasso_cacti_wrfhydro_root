@@ -47,7 +47,7 @@ This file documents the steps I take to (1) download and preprocess the ERA5-lan
 
 ## MFE
 
-My version of the WRF-Hydro Meteorological Forcing Engine (MFE) code is [here](https://github.com/hengxiao80/WrfHydroForcing).
+My version of the WRF-Hydro Meteorological Forcing Engine (MFE) code is [here](https://code.arm.gov/lasso/lasso-cacti/wrfhydro_forcing_preparation.git).
 
 ### Bias-Correction
 
@@ -59,7 +59,7 @@ ERA5-land documentation claims that some bias correction to the forcing data dri
 
 ### `test.config`
 
-This is the configuration file for MFE run. The version I am currently using is [here](https://github.com/hengxiao80/WrfHydroForcing/blob/era5land/test.config). I don't quite understand the differences among `retrospective`, `forecast`, `reforecast` modes. I also don't think the code is actually fully setup to support all these modes. Currently, I just do the following:
+This is the configuration file for MFE run. The version I am currently using is [here](https://code.arm.gov/lasso/lasso-cacti/wrfhydro_forcing_preparation/-/blob/era5land/test_d01.config?ref_type=heads). I don't quite understand the differences among `retrospective`, `forecast`, `reforecast` modes. I also don't think the code is actually fully setup to support all these modes. Currently, I just do the following:
 
 ```[Retrospective]
 # Specify to process forcings in retrospective mode
