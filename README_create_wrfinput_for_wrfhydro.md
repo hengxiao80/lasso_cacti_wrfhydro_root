@@ -6,7 +6,7 @@ This file documents the steps I take to generate the `wrfinput` file for an unco
 
 - Download hourly ERA5-land data from CDS using `get_era5_land.py`;
 
-- Run `grib_filter` to generate the GRIB1 files for the analysis data, which include variables like soil temperature and moisture (see also [README_create_meteor_forcing.md](README_create_meteor_forcing.md).
+- Run `grib_filter` to generate the GRIB1 files for the analysis data, which include variables like soil temperature and moisture.
 
 - Here is a list of all the variables in the analysis part of the ERA5-land data:
 
