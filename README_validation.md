@@ -7,7 +7,7 @@
         - Forecast, e.g., `ecmf_20190312_fc_sfc_unpacked.nc`
         - Analysis, e.g., `ecmf_20190312_an_sfc_unpacked.nc`
 
-- ERA5-land data regridded on to WRF grid (created by [this code](https://github.com/hengxiao80/regrid_era5land))
+- ERA5-land data regridded on to WRF grid (created by [this code](https://code.arm.gov/lasso/lasso-cacti/regrid_era5land.git))
     - `/ccs/home/h1x/scratchp/wrfhydro_cacti/era5-land/regridded`
         - e.g., `swvl3_201808121800.nc`
 
@@ -36,12 +36,10 @@
 
 ## Initial condition used by WRF-hydro
 
-This is also generated using ERA5-land data as described [here](/ccs/home/h1x/scratchp/wrfhydro_cacti/create_wrfinput/README.md)
-
 - `wrfinput_d01`
     - `/ccs/home/h1x/scratchp/wrfhydro_cacti/create_wrfinput`
 
-- `metgrid.exe` output used for `wrfinput_d01` generation
+- `metgrid.exe` output used for `wrfinput_d01` generation (created from ERA5-land data using the usual WPS procedure)
     - `/ccs/home/h1x/scratchp/wrfhydro_cacti/metgrid4wrfinput/met_em.d01.2018-08-01_01:00:00.nc`
 
 ## WRF-Hydro soil layers

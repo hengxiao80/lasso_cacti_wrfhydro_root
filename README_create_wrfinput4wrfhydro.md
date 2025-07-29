@@ -115,7 +115,7 @@ NOTE: You only need the first two hours for wrfinput_d* generation.
 
 - Modify the original `METGRID.TBL` to remove the mandatory flags for atmospheric data;
 
-- Run `metgrid.exe`
+- Run `metgrid.exe` on the output from `ungrib.exe` to generate the `met_em.d*` files.
 
 ## Generate a cold-start `wrfinput`
 
