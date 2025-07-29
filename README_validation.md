@@ -3,45 +3,47 @@
 ## Data for validation of WRF-Hydro output against ERA5-land
 
 - ERA5-land original data
-    - `/ccs/home/h1x/scratchp/wrfhydro_cacti/era5-land/no_lake_data/`
+    - `era5-land/no_lake_data/`
         - Forecast, e.g., `ecmf_20190312_fc_sfc_unpacked.nc`
         - Analysis, e.g., `ecmf_20190312_an_sfc_unpacked.nc`
 
 - ERA5-land data regridded on to WRF grid (created by [this code](https://code.arm.gov/lasso/lasso-cacti/regrid_era5land.git))
-    - `/ccs/home/h1x/scratchp/wrfhydro_cacti/era5-land/regridded`
+    - `era5-land/regridded`
         - e.g., `swvl3_201808121800.nc`
 
 - WRF-Hydro test simulation
-    - `/ccs/home/h1x/scratchp/wrfhydro_cacti/wrfhydro_run/out`
+    - `wrfhydro_run/out`
         - e.g., `201808240100.LDASOUT_DOMAIN1`
 
 ## Forcing data used by WRF-Hydro
 
 - Input to MFE (created from ERA5-land data by `preprocess_era5_land.py`)
-    - `/ccs/home/h1x/scratchp/wrfhydro_cacti/era5-land/mfe_input`
+    - `era5-land/mfe_input`
         - e.g., `era5land.hourly.2018081610.nc`
 
 - Output from MFE (input to WRF-Hydro)
-    - `/ccs/home/h1x/scratchp/wrfhydro_cacti/wrfhydro_forcing/2018080100`
+    - `wrfhydro_forcing/2018080100`
         - e.g., `201808231900.LDASIN_DOMAIN1`
 
 ## Topography data from WRF and ERA5-land
 
 - Geogrid output from CACTI WRF setup
-    - `/ccs/home/h1x/scratchp/wrfhydro_cacti/geogrid`
+    - `geogrid`
         - e.g., `geo_em.d01.nc`
 
 - topography in ERA5-land:
-    - `/ccs/home/h1x/scratchp/wrfhydro_cacti/era5-land/mfe_input/hgt.nc`
+    - `era5-land/mfe_input/hgt.nc`
 
 ## Initial condition used by WRF-hydro
 
-- `wrfinput_d01`
-    - `/ccs/home/h1x/scratchp/wrfhydro_cacti/create_wrfinput`
+- `/create_wrfinput/wrfinput_d01`
 
 - `metgrid.exe` output used for `wrfinput_d01` generation (created from ERA5-land data using the usual WPS procedure)
-    - `/ccs/home/h1x/scratchp/wrfhydro_cacti/metgrid4wrfinput/met_em.d01.2018-08-01_01:00:00.nc`
+    - `metgrid4wrfinput/met_em.d01.2018-08-01_01:00:00.nc`
 
+## validation against RELAMPAGO station data
+
+- see the notebook in `relampago` directory 
 ## WRF-Hydro soil layers
 
 - From `namelist.hrldas`
